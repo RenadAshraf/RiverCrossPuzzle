@@ -70,19 +70,20 @@ private ICrossingStrategy crossingStrategy;
 		if (fromLeftToRightBank)
 		{
 			rightBankCrossers.addAll(boatRiders);
+			isBoatOnLeftBank=false;
+
 		}
 		
 		else {
 			
 			leftBankCrossers.addAll(boatRiders);
+			isBoatOnLeftBank=true;
+
 		}
 		
 		boatRiders.removeAll(boatRiders);
 		numberOfSails++;
-		if(isBoatOnLeftBank)
-			isBoatOnLeftBank=false;
-		else
-			isBoatOnLeftBank=true;
+
 	}
 
 	@Override
