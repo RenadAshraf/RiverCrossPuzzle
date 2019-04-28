@@ -17,7 +17,7 @@ private ICrossingStrategy crossingStrategy;
 			ArrayList<ICrosser> boatRiders, ArrayList<ICrosser> leftBankCrossers,
 			ArrayList<ICrosser> rightBankCrossers) {
 		isBoatOnLeftBank = true;
-		crossingStrategy = new StoryOneCrossingStrategy();
+		crossingStrategy = new StoryTwoCrossingStrategy();
 	}
 
 	@Override
@@ -62,8 +62,7 @@ private ICrossingStrategy crossingStrategy;
 
 	@Override
 	public boolean canMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
-		// TODO Auto-generated method stub
-		return false;
+		return crossingStrategy.isValid(rightBankCrossers,leftBankCrossers, boatRiders);
 	}
 
 	@Override
@@ -79,6 +78,11 @@ private ICrossingStrategy crossingStrategy;
 		}
 		
 		boatRiders.removeAll(boatRiders);
+		numberOfSails++;
+		if(isBoatOnLeftBank)
+			isBoatOnLeftBank=false;
+		else
+			isBoatOnLeftBank=true;
 	}
 
 	@Override
